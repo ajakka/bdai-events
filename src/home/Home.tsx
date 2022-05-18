@@ -9,7 +9,7 @@ interface EventData {
   image: string;
 }
 
-function Home() {
+const Home = () => {
   const [events] = React.useState<EventData[]>([
     {
       title:
@@ -66,13 +66,13 @@ function Home() {
       </main>
     </div>
   );
-}
+};
 
 interface EventCardProps {
   event: EventData;
 }
 
-function EventCard(props: EventCardProps) {
+const EventCard = (props: EventCardProps) => {
   const { event } = props;
   return (
     <div className="col-md-6">
@@ -98,5 +98,5 @@ function EventCard(props: EventCardProps) {
       </div>
     </div>
   );
-}
+};
 export default Home;
