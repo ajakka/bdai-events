@@ -16,6 +16,12 @@ ssh -i instance_key.pem ubuntu@0.0.0.0
 
 ### Node 16 LTS ([docs](https://github.com/nodesource/distributions/blob/master/README.md))
 
+1. Update repository
+
+```
+sudo apt-get update
+```
+
 1. Add nodesource repository
 
 ```
@@ -77,6 +83,47 @@ systemctl status jenkins.service
 
 ```
 /var/lib/jenkins/secrets/initialAdminPassword
+```
+
+```
+sudo nano /etc/sudoers
+
+# Jenkins user
+jenkins ALL=(ALL) NOPASSWD: /usr/bin/npm install
+jenkins ALL=(ALL) NOPASSWD: /usr/bin/npm run build
+jenkins ALL=(ALL) NOPASSWD: /usr/bin/rm -rf /var/www/bdai-events
+jenkins ALL=(ALL) NOPASSWD: /usr/bin/cp -r /var/lib/jenkins/workspace/bdai-events/build/ /var/www/bdai-events/
+```
+
+### Ngenix ()
+
+1. Install ngenix
+
+```
+sudo apt install -y nginx
+
+sudo mkdir /var/www/bdai-events
+
+sudo nano /etc/nginx/sites-available/bdai-events
+
+server {
+  listen 3000;
+  server_name 53.282.5.7;
+  root /var/www/bdai-events;
+  index index.html;
+
+  access_log /var/log/nginx/bdai-events.log;
+  error_log /var/log/nginx/bdai-events.error.log;
+  location / {
+    try_files $uri /index.html =404;
+  }
+}
+
+sudo ln -s /etc/nginx/sites-available/bdai-events /etc/nginx/sites-enabled/bdai-events
+
+sudo systemctl start nginx
+
+systemctl status nginx.service
 ```
 
 ### Open port ([docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/authorizing-access-to-an-instance.html))
