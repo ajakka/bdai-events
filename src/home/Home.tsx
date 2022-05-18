@@ -50,7 +50,7 @@ const Home = () => {
             <div className="col-md-6 px-0">
               <h1 className="display-4 fst-italic">Events board</h1>
               <p className="lead mb-0 text-white fw-bold">
-                Faculté Polydisciplinaire de Taroudant (FPT)
+                Faculté Polydisciplinaire de Taroudant
               </p>
             </div>
           </div>
