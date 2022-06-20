@@ -58,7 +58,7 @@ sudo apt-get update
 3. Install Java 11
 
 ```
-sudo apt-get install -y openjdk-11-jre
+sudo apt-get install -y openjdk-11-jdk
 ```
 
 4. Install Jenkins
@@ -79,11 +79,19 @@ sudo systemctl start jenkins
 systemctl status jenkins.service
 ```
 
-7. Password location
+7. Jenkins port (8080)
 
 ```
-/var/lib/jenkins/secrets/initialAdminPassword
+0.0.0.0:8080
 ```
+
+8. Password location
+
+```
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+
+9. Provide Jenkins user with privileges necessary to build react project
 
 ```
 sudo nano /etc/sudoers
@@ -95,9 +103,9 @@ jenkins ALL=(ALL) NOPASSWD: /usr/bin/rm -rf /var/www/bdai-events
 jenkins ALL=(ALL) NOPASSWD: /usr/bin/cp -r /var/lib/jenkins/workspace/bdai-events/build/ /var/www/bdai-events/
 ```
 
-### Ngenix ()
+### Ngnix ()
 
-1. Install ngenix
+1. Install ngnix
 
 ```
 sudo apt install -y nginx
@@ -123,7 +131,9 @@ sudo ln -s /etc/nginx/sites-available/bdai-events /etc/nginx/sites-enabled/bdai-
 
 sudo systemctl start nginx
 
-systemctl status nginx.service
+sudo systemctl status nginx.service
 ```
 
 ### Open port ([docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/authorizing-access-to-an-instance.html))
+
+### [Medium Article](https://medium.com/swlh/setup-a-ci-cd-pipeline-to-automate-react-app-deployment-on-aws-ec2-82bd0c194f77)
