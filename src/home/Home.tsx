@@ -48,7 +48,7 @@ const Home = () => {
         <header className="blog-header lh-1 py-3">
           <div className="p-4 p-md-5 mb-4 text-white rounded bg-dark">
             <div className="col-md-6 px-0">
-              <h1 className="display-4 fst-italic">Events board</h1>
+              <h1 className="display-4 fst-italic">Events board for class</h1>
               <p className="lead mb-0 text-white fw-bold">FPT</p>
             </div>
           </div>
@@ -82,7 +82,7 @@ const EventCard = (props: EventCardProps) => {
           <h3 className="mb-0">{event.title}</h3>
           <div className="mb-4 text-muted">{event.date}</div>
           <a href={event.link} className="fw-bold ">
-            Continue reading
+            Continue reading here
           </a>
         </div>
         <div className="col-auto d-none d-lg-block">
