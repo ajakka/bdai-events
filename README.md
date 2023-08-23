@@ -1,4 +1,4 @@
-# BDAI Events
+## A guided example to integrate CI/CD using Jenkins to build a React website and host it using NGINX 
 
 ### SSH ([docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html))
 
@@ -134,6 +134,8 @@ sudo systemctl start nginx
 sudo systemctl status nginx.service
 ```
 
-### Open port ([docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/authorizing-access-to-an-instance.html))
+### Refrences
 
-### [Medium Article](https://medium.com/swlh/setup-a-ci-cd-pipeline-to-automate-react-app-deployment-on-aws-ec2-82bd0c194f77)
+Open port ([docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/authorizing-access-to-an-instance.html))
+
+[Setup a CI/CD pipeline to automate React App deployment on AWS ec2](https://medium.com/swlh/setup-a-ci-cd-pipeline-to-automate-react-app-deployment-on-aws-ec2-82bd0c194f77)
